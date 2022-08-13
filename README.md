@@ -40,5 +40,7 @@ decrypt = cryptor.decrypt_text(encrypt, print_it=True)
 **On Windows:**
 ```
 $ pip install JCryptor
-$ pip install jcryptor==[0.1.50](https://github.com/ScripNewbie/JCryptor/tree/main)
+```
+```
+$ pip install jcryptor==0.1.50
 ```
