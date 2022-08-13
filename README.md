@@ -2,8 +2,6 @@
 
 JCryptor is used to Encrypt and Decrypt.
 
-Example:
-  
   Encrypting:
 
     cryp = JCryptor()
@@ -19,5 +17,5 @@ Example:
  
  # How to install?
  
- - $pip install JCryptor
- - $pip3 install JCryptor
+ - pip install JCryptor
+ - pip3 install JCryptor
