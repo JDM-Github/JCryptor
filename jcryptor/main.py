@@ -4,7 +4,6 @@ Encryptor and Decryptor Library
 """
 import ast
 from random import sample
-from typing import get_type_hints
 import string
 
 
@@ -25,15 +24,28 @@ class JCryptor:
         in encryption, the same goes with decryption.
     """
 
-    def __init__(self, generate: bool = True) -> None:
+    def __init__(self, generate: bool = False) -> None:
         """Initiliaze the :class:`JCryptor`.
 
         Args:
-            :bool:`generate` (bool, optional): Generate a key. Defaults to True.
+            :bool:`generate` (bool, optional): Generate a key. Defaults to False.
         """
-        self._key = dict()
         if generate:
             self.generate_new_key()
+        else:
+            self.set_default_key()
+
+    def set_default_key(self):
+        """
+        Set The Key in Default Key.
+        """
+        self._key = {'a': '6', 'b': '7', 'c': 'C', 'd': '@', 'e': '[', 'f': '2', 'g': ']', 'h': 'y', 'i': ';', 'j': 'v', 'k': '!', 'l': '\\', 'm': '>',
+                     'n': ',', 'o': 'o', 'p': 'w', 'q': 'A', 'r': '|', 's': 'Y', 't': 'p', 'u': '}', 'v': 'O', 'w': 'S', 'x': '-', 'y': 'Q', 'z': 'c',
+                     'A': 'F', 'B': '3', 'C': '5', 'D': 'M', 'E': 'a', 'F': 'L', 'G': '+', 'H': '<', 'I': '*', 'J': '&', 'K': '~', 'L': '9', 'M': 'n',
+                     'N': '%', 'O': ':', 'P': 't', 'Q': 'd', 'R': 'h', 'S': 'b', 'T': 'k', 'U': 'e', 'V': 'J', 'W': 'V', 'X': 'f', 'Y': '.', 'Z': 'q',
+                     '0': 'r', '1': '1', '2': 'R', '3': 'T', '4': 'X', '5': 'i', '6': '4', '7': 'x', '8': '(', '9': '"', '!': '^', '@': 'm', '#': 'U',
+                     '$': 'G', '%': '/', '^': '0', '&': 'H', '*': '_', '(': '`', ')': 'K', '_': 'P', '+': 'g', '-': 'W', '/': 'z', '}': 'D', '[': '#',
+                     ']': 'Z', '|': 'I', '\\': '?', '~': 'E', '`': 'j', '.': '$', ',': "'", ':': '8', ';': 'l', '"': ')', "'": 's', '<': 'u', '>': 'B', '?': 'N'}
 
     def generate_new_key(self):
         """
@@ -137,7 +149,7 @@ class JCryptor:
         result = str()
         all_key = list(self._key.keys())
         all_val = list(self._key.values())
-        for t in text:
+        for t in str(text):
             try:
                 result += all_key[all_val.index(t)]
             except ValueError:
